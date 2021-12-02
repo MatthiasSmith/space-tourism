@@ -11,6 +11,7 @@ module.exports = {
     extend: {
       colors: {
         darkGray: 'hsl(230, 35%, 7%)',
+        borderGray: 'hsl(231, 15%, 26%)',
         lightPurple: 'hsl(231, 77%, 90%)',
         white: 'hsl(0, 0%, 100%)',
       },
@@ -31,7 +32,7 @@ module.exports = {
         ],
         'mobile-sub-heading-1': [
           '1rem',
-          { lineHeight: '19px', letterSpacing: '2.7px' },
+          { lineHeight: '1.1875rem', letterSpacing: '2.7px' },
         ],
         'mobile-base': ['0.9375rem', '1.5625rem'],
         'sub-heading-1': ['2.125rem', '2rem'],

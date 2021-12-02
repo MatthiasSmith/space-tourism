@@ -1,7 +1,7 @@
 <template>
   <div class="container relative">
     <NuxtLink
-      to='#'
+      to="destination/moon"
       class="
         explore-button-link
         inline-flex
@@ -26,15 +26,7 @@
       explore
     </NuxtLink>
     <span
-      class="
-        hover-circle
-        rounded-full
-        absolute
-        top-1/2
-        left-1/2
-        h-full
-        w-full
-      "
+      class="hover-circle rounded-full absolute top-1/2 left-1/2 h-full w-full"
     >
     </span>
   </div>

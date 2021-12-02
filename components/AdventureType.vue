@@ -1,0 +1,37 @@
+<template>
+  <div class="destination-text-container">
+    <span
+      class="
+        font-barlowCondensed font-bold
+        text-mobile-sub-heading-1 text-gray-600
+        mr-4
+      "
+      data-test-id="number-text"
+    >
+      {{ number }}
+    </span>
+    <span
+      class="uppercase font-barlowCondensed text-mobile-sub-heading-1"
+      data-test-id="text"
+    >
+      {{ text }}
+    </span>
+  </div>
+</template>
+
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  props: {
+    number: {
+      type: String,
+      default: '',
+    },
+    text: {
+      type: String,
+      default: '',
+    },
+  },
+})
+</script>

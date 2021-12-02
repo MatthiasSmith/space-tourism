@@ -35,7 +35,11 @@ export default {
     [
       '@nuxtjs/google-fonts',
       {
-        families: { Bellefair: true, Barlow: [400], 'Barlow+Condensed': [400] },
+        families: {
+          Bellefair: true,
+          Barlow: [400],
+          'Barlow+Condensed': [400, 700],
+        },
         display: 'swap',
       },
     ],
