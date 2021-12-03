@@ -3,7 +3,8 @@
     <span
       class="
         font-barlowCondensed font-bold
-        text-mobile-sub-heading-1 text-gray-600
+        text-mobile-sub-heading-1
+        opacity-25
         mr-4
       "
       data-test-id="number-text"

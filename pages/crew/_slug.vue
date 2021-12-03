@@ -78,7 +78,7 @@ export default Vue.extend({
 
 <style scoped>
 .bg-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background-image: var(--bgOverlayGradient),
     url('~/assets/crew/background-crew-mobile.jpg');
   background-size: cover;
   background-repeat: no-repeat;

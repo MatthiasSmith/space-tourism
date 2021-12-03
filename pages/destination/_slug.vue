@@ -99,7 +99,8 @@ export default Vue.extend({
 
 <style scoped>
 .bg-image {
-  background-image: url('~/assets/destination/background-destination-mobile.jpg');
+  background-image: var(--bgOverlayGradient),
+    url('~/assets/destination/background-destination-mobile.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }

@@ -66,15 +66,17 @@ export default Vue.extend({
 }
 
 .link-bullet {
-  background-color: var(--borderGray);
+  background-color: white;
   border-radius: 50%;
   display: inline-block;
+  opacity: 0.25;
   width: 1rem;
   height: 1rem;
 }
 
 .link-bullet.nuxt-link-active {
   background-color: white;
+  opacity: 1;
 }
 
 .link-text.nuxt-link-active {
