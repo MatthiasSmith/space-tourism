@@ -20,6 +20,7 @@
       fallback-img-type="png"
       dir="destination"
     />
+    <PageTabs class="mt-7" :tabs="destinations" />
     <h1 class="uppercase font-bellefair text-heading-3 mt-5">
       {{ destination.name }}
     </h1>

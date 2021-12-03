@@ -1,3 +1,7 @@
+:root {
+  --borderGray: hsl(231, 15%, 26%);
+}
+
 html {
   background-color: #080d17;
   color: #ffffff;
