@@ -24,7 +24,6 @@ export default Vue.extend({
     imgTypes: {
       type: Array, // string[]
       default: () => [],
-      required: true,
     },
     dir: {
       type: String,
@@ -44,6 +43,10 @@ export default Vue.extend({
       type: String,
       default: '',
     },
+    orientation: {
+      type: String,
+      default: '',
+    },
   },
   computed: {
     imageSrcs(): ImageSrcType[] {
@@ -53,15 +56,17 @@ export default Vue.extend({
         return {
           src: require(`~/assets/${
             this.dir
-          }/image-${this.imgName.toLowerCase()}.${type}`),
+          }/image-${this.imgName.toLowerCase()}${
+            this.orientation ? '-' + this.orientation : ''
+          }.${type}`),
           imgType: type,
         }
       })
     },
     fallbackImg(): string {
-      return require(`~/assets/${
-        this.dir
-      }/image-${this.imgName.toLowerCase()}.${this.fallbackImgType}`)
+      return require(`~/assets/${this.dir}/image-${this.imgName.toLowerCase()}${
+        this.orientation ? '-' + this.orientation : ''
+      }.${this.fallbackImgType}`)
     },
   },
 })

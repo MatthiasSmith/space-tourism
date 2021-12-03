@@ -15,6 +15,13 @@ describe('FeaturedImage', () => {
     jest.mock(`${path}moon.png`, () => `~/assets/destination/image-moon.png`, {
       virtual: true,
     })
+    jest.mock(
+      `~/assets/technology/image-spaceport-landscape.jpg`,
+      () => `~/assets/technology/image-spaceport-landscape.jpg`,
+      {
+        virtual: true,
+      }
+    )
   })
 
   test('renders correctly', () => {
@@ -36,5 +43,20 @@ describe('FeaturedImage', () => {
     const imgEl = wrapper.find('img')
     expect(imgEl.attributes('src')).toBe(`${path}moon.png`)
     expect(imgEl.attributes('alt')).toBe('Moon')
+  })
+
+  it('uses orientation correctly', () => {
+    const orientationWrapper = mount(FeaturedImage, {
+      propsData: {
+        imgName: 'spaceport',
+        dir: 'technology',
+        fallbackImgType: 'jpg',
+        orientation: 'landscape',
+      },
+    })
+    const orientationImg = orientationWrapper.find('img')
+    expect(orientationImg.attributes('src')).toBe(
+      `~/assets/technology/image-spaceport-landscape.jpg`
+    )
   })
 })

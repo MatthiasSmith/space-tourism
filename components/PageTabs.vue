@@ -57,12 +57,42 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.li-bullet:not(:last-of-type) {
+.li-bullet:not(:last-of-type),
+.li-number:not(:last-of-type) {
   margin-right: 1rem;
 }
 
 .li-text:not(:last-of-type) {
   margin-right: 2rem;
+}
+
+.li-number {
+  border-radius: 50%;
+  border: 1px solid hsla(0, 0%, 100%, 0.25);
+  width: 2.5rem;
+  height: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.link-number {
+  width: 100%;
+  color: white;
+  font-family: 'Bellefair';
+  font-size: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.link-number span {
+  letter-spacing: 1px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .link-bullet {
@@ -77,6 +107,11 @@ export default Vue.extend({
 .link-bullet.nuxt-link-active {
   background-color: white;
   opacity: 1;
+}
+
+.link-number.nuxt-link-active {
+  color: var(--darkGray);
+  background-color: white;
 }
 
 .link-text.nuxt-link-active {

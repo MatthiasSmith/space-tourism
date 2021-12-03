@@ -61,7 +61,7 @@ export default Vue.extend({
         { text: 'Home', path: '/' },
         { text: 'Destination', path: '/destination/moon' },
         { text: 'Crew', path: '/crew/1' },
-        { text: 'Technology', path: '/technology' },
+        { text: 'Technology', path: '/technology/1' },
       ] as LinkType[],
     }
   },

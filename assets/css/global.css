@@ -1,4 +1,5 @@
 :root {
+  --darkGray: hsl(230, 35%, 7%);
   --bgOverlayGradient: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 }
 
