@@ -12,12 +12,14 @@
     "
   >
     <AdventureType number="01" text="Pick your destination" />
-    <picture class="destination-img text-center mt-8">
-      <source :srcset="webpImage" type="image/webp" />
-      <source :srcset="pngImage" type="image/png" />
-      <img :src="webpImage" :alt="destination.name" />
-    </picture>
-    <DestinationTabs class="mt-7" :destinations="destinations" />
+    <FeaturedImage
+      class="featured-img text-center mt-8"
+      :img-name="destination.name"
+      :alt="destination.name"
+      :img-types="imgTypes"
+      fallback-img-type="png"
+      dir="destination"
+    />
     <h1 class="uppercase font-bellefair text-heading-3 mt-5">
       {{ destination.name }}
     </h1>
@@ -84,17 +86,10 @@ export default Vue.extend({
       destination: {} as DestinationType,
     }
   },
-  // watch: {
-  //   '$route.params': '$fetch',
-  // },
   computed: {
-    webpImage(): string {
-      if (!this.destination) return ''
-      return require(`~/assets/destination/image-${this.destination.id.toLowerCase()}.webp`)
-    },
-    pngImage(): string {
-      if (!this.destination) return ''
-      return require(`~/assets/destination/image-${this.destination.id.toLowerCase()}.png`)
+    imgTypes(): string[] {
+      if (!this.destination) return []
+      return Object.keys(this.destination.images).map((key) => key)
     },
   },
   template: 'default',
@@ -108,7 +103,7 @@ export default Vue.extend({
   background-repeat: no-repeat;
 }
 
-.destination-img {
+.featured-img {
   width: 10.625rem;
   min-height: 10.625rem;
 }
