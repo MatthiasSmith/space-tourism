@@ -11,20 +11,41 @@
       items-center
     "
   >
-    <AdventureType number="01" text="Pick your destination" />
+    <AdventureType
+      number="01"
+      text="Pick your destination"
+      class="md:self-start"
+    />
     <FeaturedImage
-      class="featured-img text-center mt-8"
+      class="featured-img text-center mt-8 md:mt-14"
       :img-name="destination.name"
       :alt="destination.name"
       :img-types="imgTypes"
       fallback-img-type="png"
       dir="destination"
     />
-    <PageTabs class="mt-7" :tabs="destinations" />
-    <h1 class="uppercase font-bellefair text-heading-3 mt-5">
+    <PageTabs class="mt-7 md:mt-12" :tabs="destinations" />
+    <h1
+      class="
+        page-title
+        uppercase
+        font-bellefair
+        text-heading-3
+        md:text-mobile-heading-1
+        mt-5
+        md:mt-8
+      "
+    >
       {{ destination.name }}
     </h1>
-    <p class="text-lightPurple text-mobile-base">
+    <p
+      class="
+        text-lightPurple text-mobile-base
+        md:text-base md:mt-2
+        max-w-md
+        md:max-w-xl
+      "
+    >
       {{ destination.description }}
     </p>
     <div
@@ -32,11 +53,15 @@
         stats
         text-center
         flex flex-col
+        md:flex-row
         items-center
+        md:justify-center
         mt-8
+        md:mt-12
         pt-8
         border-t border-borderGray
         w-full
+        md:max-w-xl
       "
     >
       <div class="stat-container flex flex-col items-center">
@@ -51,7 +76,9 @@
         </span>
         <span class="stat-text mt-3"> {{ destination.distance }} </span>
       </div>
-      <div class="stat-container flex flex-col items-center mt-8">
+      <div
+        class="stat-container flex flex-col items-center mt-8 md:mt-0 md:ml-20"
+      >
         <span
           class="
             stat-title
@@ -115,5 +142,17 @@ export default Vue.extend({
   font-size: 1.75rem;
   line-height: 2rem;
   text-transform: uppercase;
+}
+
+@media screen and (min-width: 48em) {
+  .bg-image {
+    background-image: var(--bgOverlayGradient),
+      url('~/assets/destination/background-destination-tablet.jpg');
+  }
+
+  .featured-img {
+    width: 18.75rem;
+    height: 18.75rem;
+  }
 }
 </style>

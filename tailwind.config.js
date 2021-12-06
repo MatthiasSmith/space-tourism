@@ -34,12 +34,17 @@ module.exports = {
           '1rem',
           { lineHeight: '1.1875rem', letterSpacing: '2.7px' },
         ],
+        'tablet-sub-heading-1': [
+          '1.25rem',
+          { lineHeight: '1.5rem', letterSpacing: '3.38px' },
+        ],
         'mobile-base': ['0.9375rem', '1.5625rem'],
         'sub-heading-1': ['2.125rem', '2rem'],
         'sub-heading-2': [
           '0.875rem',
           { lineHeight: '1.0625rem', letterSpacing: '2.3625px' },
         ],
+        base: ['1rem', '1.75rem'],
       },
     },
   },

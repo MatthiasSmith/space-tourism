@@ -3,14 +3,7 @@
     <li
       v-for="(tab, index) in tabs"
       :key="tab"
-      class="
-        tab
-        relative
-        h-7
-        font-barlowCondensed
-        text-sub-heading-2 text-lightPurple
-        uppercase
-      "
+      class="tab relative h-7 md:h-8 text-center"
       :class="{
         'li-bullet': displayType === 'bullet',
         'li-number': displayType === 'number',
@@ -28,7 +21,17 @@
         <span v-if="displayType === 'number'">
           {{ index + 1 }}
         </span>
-        <span v-else-if="displayType === 'text'">{{ tab }}</span>
+        <span
+          v-else-if="displayType === 'text'"
+          class="
+            text
+            font-barlowCondensed
+            text-sub-heading-2 text-lightPurple
+            uppercase
+          "
+        >
+          {{ tab }}
+        </span>
       </NuxtLink>
     </li>
   </ul>
@@ -100,8 +103,8 @@ export default Vue.extend({
   border-radius: 50%;
   display: inline-block;
   opacity: 0.25;
-  width: 1rem;
-  height: 1rem;
+  width: 0.625rem;
+  height: 0.625rem;
 }
 
 .link-bullet.nuxt-link-active {
@@ -126,5 +129,25 @@ export default Vue.extend({
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+@media screen and (min-width: 48em) {
+  .link-text.nuxt-link-active::after {
+    bottom: -2px;
+  }
+
+  .text {
+    font-size: 1rem;
+    letter-spacing: 2.7px;
+  }
+
+  .li-number {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+
+  .link-number {
+    font-size: 1.5rem;
+  }
 }
 </style>

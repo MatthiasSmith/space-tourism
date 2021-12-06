@@ -6,7 +6,7 @@
       :srcset="image.src"
       :type="`image/${image.imgType}`"
     />
-    <img :src="fallbackImg" :alt="alt" :style="{ height }" />
+    <img :src="fallbackImg" :alt="alt" :style="styles" />
   </picture>
 </template>
 
@@ -39,9 +39,9 @@ export default Vue.extend({
       type: String,
       default: '',
     },
-    height: {
-      type: String,
-      default: '',
+    styles: {
+      type: Object,
+      default: () => {},
     },
     orientation: {
       type: String,

@@ -4,6 +4,7 @@
       class="
         font-barlowCondensed font-bold
         text-mobile-sub-heading-1
+        md:text-tablet-sub-heading-1
         opacity-25
         mr-4
       "
@@ -12,7 +13,12 @@
       {{ number }}
     </span>
     <span
-      class="uppercase font-barlowCondensed text-mobile-sub-heading-1"
+      class="
+        uppercase
+        font-barlowCondensed
+        text-mobile-sub-heading-1
+        md:text-tablet-sub-heading-1
+      "
       data-test-id="text"
     >
       {{ text }}

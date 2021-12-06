@@ -66,4 +66,16 @@
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 }
+
+@media screen and (min-width: 48em) {
+  .container {
+    width: 15.125rem;
+    height: 15.125rem;
+  }
+
+  .explore-button-link {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+}
 </style>

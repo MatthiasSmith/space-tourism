@@ -32,6 +32,9 @@ describe('FeaturedImage', () => {
         dir: 'destination',
         fallbackImgType: 'png',
         alt: 'Moon',
+        styles: {
+          width: '100%',
+        },
       },
     })
     const sourceEls = wrapper.findAll('source')
@@ -43,6 +46,7 @@ describe('FeaturedImage', () => {
     const imgEl = wrapper.find('img')
     expect(imgEl.attributes('src')).toBe(`${path}moon.png`)
     expect(imgEl.attributes('alt')).toBe('Moon')
+    expect(imgEl.attributes('style')).toBe('width: 100%;')
   })
 
   it('uses orientation correctly', () => {
