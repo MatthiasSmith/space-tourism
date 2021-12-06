@@ -14,7 +14,7 @@
     <AdventureType
       number="01"
       text="Pick your destination"
-      class="md:self-start"
+      class="md:self-start md:mt-8"
     />
     <FeaturedImage
       class="featured-img text-center mt-8 md:mt-14"

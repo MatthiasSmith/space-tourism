@@ -13,7 +13,7 @@
     <AdventureType
       number="03"
       text="Space Launch 101"
-      class="px-6 md:self-start"
+      class="px-6 md:self-start md:mt-8"
     />
     <FeaturedImage
       class="featured-img text-center mt-8"

@@ -1,6 +1,6 @@
 <template>
   <article class="bg-image h-screen text-center px-6 pt-28">
-    <h1 class="uppercase">
+    <h1 class="uppercase md:mt-24">
       <span
         class="
           font-barlowCondensed

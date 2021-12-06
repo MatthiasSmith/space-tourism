@@ -12,7 +12,11 @@
       items-center
     "
   >
-    <AdventureType number="02" text="Meet your crew" class="md:self-start" />
+    <AdventureType
+      number="02"
+      text="Meet your crew"
+      class="md:self-start md:mt-8"
+    />
     <FeaturedImage
       class="featured-img text-center mt-8 md:mt-10 md:order-3"
       :img-name="imgName"
