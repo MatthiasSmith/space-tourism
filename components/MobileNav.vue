@@ -35,6 +35,7 @@
           <NuxtLink
             :to="link.path"
             class="uppercase text-base inline-flex items-center w-full h-8"
+            :class="activeLink(link.text)"
           >
             <span class="font-bold mr-3">0{{ index }}</span>
             {{ link.text }}
@@ -48,27 +49,23 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapActions } from 'vuex'
-
-interface LinkType {
-  text: string
-  path: string
-}
+import { SITE_LINKS } from '~/constants/site-links'
 
 export default Vue.extend({
   data() {
     return {
-      links: [
-        { text: 'Home', path: '/' },
-        { text: 'Destination', path: '/destination/moon' },
-        { text: 'Crew', path: '/crew/1' },
-        { text: 'Technology', path: '/technology/1' },
-      ] as LinkType[],
+      links: SITE_LINKS,
     }
   },
   methods: {
     ...mapActions(['toggleMobileNav']),
     closeMobileNav() {
       this.$store.dispatch('toggleMobileNav', false)
+    },
+    activeLink(path: string) {
+      return {
+        'link-active': this.$route.path.includes(path.toLowerCase()),
+      }
     },
   },
 })
@@ -88,7 +85,8 @@ export default Vue.extend({
   letter-spacing: 2.7px;
 }
 
-.nuxt-link-exact-active {
+.nuxt-link-exact-active,
+.link-active {
   border-right: 0.25rem solid white;
 }
 </style>

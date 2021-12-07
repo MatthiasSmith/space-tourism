@@ -1,6 +1,6 @@
 <template>
-  <header class="p-6 flex justify-between items-center">
-    <NuxtLink to="/">
+  <header class="flex justify-between items-center">
+    <NuxtLink class="p-6" to="/">
       <img
         class="logo"
         src="~/assets/shared/logo.svg"
@@ -8,7 +8,8 @@
         @click="closeMobileNav"
       />
     </NuxtLink>
-    <button type="button" @click="openMobileNav">
+    <TheNavbar class="hidden md:block" />
+    <button type="button" class="md:hidden p-6" @click="openMobileNav">
       <img
         src="~/assets/shared/icon-hamburger.svg"
         alt="open mobile navigation menu"

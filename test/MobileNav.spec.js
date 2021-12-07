@@ -9,6 +9,11 @@ describe('MobileNav', () => {
   const stubs = {
     NuxtLink: { template: '<a><slot></slot></a>' },
   }
+  const mocks = {
+    $route: {
+      path: 'test/path',
+    },
+  }
   let actions
   let store
 
@@ -22,7 +27,7 @@ describe('MobileNav', () => {
   })
 
   test('renders correctly', () => {
-    const wrapper = mount(MobileNav, { stubs })
+    const wrapper = mount(MobileNav, { stubs, mocks })
     const closeBtn = wrapper.find('button')
     expect(closeBtn.exists()).toBe(true)
     const listEls = wrapper.findAll('li')
@@ -30,14 +35,14 @@ describe('MobileNav', () => {
   })
 
   test('dispatches "toggleMobileNav" when close button is clicked', () => {
-    const wrapper = mount(MobileNav, { store, localVue, stubs })
+    const wrapper = mount(MobileNav, { store, localVue, stubs, mocks })
     const closeBtn = wrapper.find('button')
     closeBtn.trigger('click')
     expect(actions.toggleMobileNav).toHaveBeenCalledTimes(1)
   })
 
   test('dispatches "toggleMobileNav" when list item is clicked', () => {
-    const wrapper = mount(MobileNav, { store, localVue, stubs })
+    const wrapper = mount(MobileNav, { store, localVue, stubs, mocks })
     const li = wrapper.find('li')
     li.trigger('click')
     expect(actions.toggleMobileNav).toHaveBeenCalledTimes(1)
