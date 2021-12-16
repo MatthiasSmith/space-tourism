@@ -8,3 +8,13 @@ html {
   color: #ffffff;
   font-family: 'Barlow';
 }
+
+.site-content-max-width {
+  max-width: max(56rem, 85vw);
+}
+
+@media screen and (min-width: 80em) {
+  .site-content-max-width {
+    max-width: 69.375rem;
+  }
+}

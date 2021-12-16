@@ -1,43 +1,60 @@
 <template>
-  <article class="bg-image h-screen text-center px-6 pt-28">
-    <h1 class="uppercase md:mt-24">
-      <span
-        class="
-          font-barlowCondensed
-          text-mobile-sub-heading-1
-          md:text-tablet-sub-heading-1
-          text-lightPurple
-        "
-      >
-        So, you want to travel to
-      </span>
-      <span
-        class="
-          font-bellefair
-          text-mobile-heading-1
-          md:text-heading-1
-          block
-          mt-4
-          md:mt-6
-        "
-      >
-        space
-      </span>
-    </h1>
-    <p
+  <article class="bg-image min-h-screen px-6 pt-28">
+    <div
       class="
-        text-mobile-base
-        md:text-base
-        text-lightPurple
-        mt-4
-        md:mt-6 md:max-w-md md:mx-auto
+        site-content-max-width
+        mx-auto
+        pb-20
+        lg:pb-32 lg:flex lg:items-end lg:mt-32
+        xl:mt-60
       "
     >
-      Let’s face it; if you want to go to space, you might as well genuinely go
-      to outer space and not hover kind of on the edge of it. Well sit back, and
-      relax because we’ll give you a truly out of this world experience!
-    </p>
-    <ExploreButtonLink class="mt-20 mx-auto" />
+      <section class="text-center lg:text-left">
+        <h1 class="uppercase md:mt-24 lg:mt-3">
+          <span
+            class="
+              font-barlowCondensed
+              text-mobile-sub-heading-1
+              md:text-tablet-sub-heading-1
+              xl:text-heading-5
+              text-lightPurple
+            "
+          >
+            So, you want to travel to
+          </span>
+          <span
+            class="
+              font-bellefair
+              text-mobile-heading-1
+              md:text-heading-1
+              block
+              mt-4
+              md:mt-6
+            "
+          >
+            space
+          </span>
+        </h1>
+        <p
+          class="
+            text-mobile-base
+            md:text-base
+            text-lightPurple
+            mt-4
+            md:mt-6
+            max-w-sm
+            md:max-w-md
+            mx-auto
+          "
+        >
+          Let’s face it; if you want to go to space, you might as well genuinely
+          go to outer space and not hover kind of on the edge of it. Well sit
+          back, and relax because we’ll give you a truly out of this world
+          experience!
+        </p>
+      </section>
+      <ExploreButtonLink class="mt-20 mx-auto lg:mr-0 lg:ml-auto" />
+    </div>
   </article>
 </template>
 
@@ -66,8 +83,7 @@ export default Vue.extend({
 
 @media screen and (min-width: 64em) {
   .bg-image {
-    background-image: var(--bgOverlayGradient),
-      url('~/assets/home/background-home-desktop.jpg');
+    background-image: url('~/assets/home/background-home-desktop.jpg');
   }
 }
 </style>

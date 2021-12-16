@@ -21,9 +21,13 @@ describe('TheNavbar', () => {
     })
     const listEls = wrapper.findAll('li')
     expect(listEls).toHaveLength(4)
-    expect(listEls.at(0).text()).toBe('Home')
-    expect(listEls.at(1).text()).toBe('Destination')
-    expect(listEls.at(2).text()).toBe('Crew')
-    expect(listEls.at(3).text()).toBe('Technology')
+    expect(listEls.at(0).find('[data-test-id="link-text"]').text()).toBe('Home')
+    expect(listEls.at(1).find('[data-test-id="link-text"]').text()).toBe(
+      'Destination'
+    )
+    expect(listEls.at(2).find('[data-test-id="link-text"]').text()).toBe('Crew')
+    expect(listEls.at(3).find('[data-test-id="link-text"]').text()).toBe(
+      'Technology'
+    )
   })
 })

@@ -1,58 +1,75 @@
 <template>
-  <article
-    class="
-      bg-image
-      min-h-screen
-      text-center
-      px-6
-      pt-28
-      pb-14
-      md:pb-0
-      flex flex-col
-      items-center
-    "
-  >
-    <AdventureType
-      number="02"
-      text="Meet your crew"
-      class="md:self-start md:mt-8"
-    />
-    <FeaturedImage
-      class="featured-img text-center mt-8 md:mt-10 md:order-3"
-      :img-name="imgName"
-      :alt="crewMember.name"
-      :img-types="imgTypes"
-      :styles="imageStyles"
-      fallback-img-type="png"
-      dir="crew"
-    />
-    <hr class="w-full border-t-1 border-borderGray md:hidden" />
-    <PageTabs
-      class="mt-8 md:mt-10 md:order-2"
-      :tabs="pages"
-      display-type="bullet"
-    />
-    <section class="flex flex-col mt-8 md:order-1 md:mt-14 max-w-md">
-      <span
+  <article class="bg-image min-h-screen px-6 pt-28 pb-14 md:pb-0">
+    <div
+      class="
+        site-content-max-width
+        mx-auto
+        flex flex-col
+        lg:flex-row
+        items-center
+        lg:justify-between lg:pt-24
+      "
+    >
+      <div
         class="
-          uppercase
-          text-mobile-sub-heading-1
-          md:text-tablet-sub-heading-1
-          tracking-normal
-          md:tracking-normal
-          font-bellefair
-          opacity-50
+          flex flex-col
+          items-center
+          lg:items-start lg:self-start lg:pb-16
+          w-full
+          lg:w-auto
         "
       >
-        {{ crewMember.role }}
-      </span>
-      <h1 class="crew-member-name uppercase font-bellefair mt-2">
-        {{ crewMember.name }}
-      </h1>
-      <p class="text-mobile-base md:text-base text-lightPurple mt-4">
-        {{ crewMember.bio }}
-      </p>
-    </section>
+        <AdventureType
+          number="02"
+          text="Meet your crew"
+          class="md:self-start md:mt-8"
+        />
+        <CrewInfo
+          class="
+            mt-8
+            md:order-1 md:mt-14
+            lg:mt-24
+            xl:mt-36
+            max-w-md
+            hidden
+            md:block
+          "
+          :role="crewMember.role"
+          :name="crewMember.name"
+          :bio="crewMember.bio"
+        />
+        <FeaturedImage
+          class="text-center mt-8 md:hidden"
+          :img-name="imgName"
+          :alt="crewMember.name"
+          :img-types="imgTypes"
+          :styles="imageStyles"
+          fallback-img-type="png"
+          dir="crew"
+        />
+        <hr class="w-full border-t-1 border-borderGray md:hidden" />
+        <PageTabs
+          class="mt-8 md:mt-10 md:order-2"
+          :tabs="pages"
+          display-type="bullet"
+        />
+      </div>
+      <CrewInfo
+        class="mt-8 md:order-1 md:mt-14 max-w-md md:hidden"
+        :role="crewMember.role"
+        :name="crewMember.name"
+        :bio="crewMember.bio"
+      />
+      <FeaturedImage
+        class="hidden md:block md:mt-10 lg:self-end lg:mx-auto"
+        :img-name="imgName"
+        :alt="crewMember.name"
+        :img-types="imgTypes"
+        :styles="imageStyles"
+        fallback-img-type="png"
+        dir="crew"
+      />
+    </div>
   </article>
 </template>
 
@@ -107,20 +124,17 @@ export default Vue.extend({
   background-repeat: no-repeat;
 }
 
-.crew-member-name {
-  font-size: 1.5rem;
-  line-height: 1.75rem;
-}
-
 @media screen and (min-width: 48em) {
   .bg-image {
     background-image: var(--bgOverlayGradient),
       url('~/assets/crew/background-crew-tablet.jpg');
   }
+}
 
-  .crew-member-name {
-    font-size: 2.5rem;
-    line-height: 45.84px;
+@media screen and (min-width: 64em) {
+  .bg-image {
+    background-image: var(--bgOverlayGradient),
+      url('~/assets/crew/background-crew-desktop.jpg');
   }
 }
 </style>

@@ -1,13 +1,16 @@
 <template>
-  <nav class="navbar">
+  <nav class="navbar p-10 px-12 xl:pl-28 xl:pr-40">
     <ul class="flex">
-      <li v-for="link in links" :key="link.text" class="list-item">
+      <li v-for="(link, index) in links" :key="link.text" class="list-item">
         <NuxtLink
           :to="link.path"
-          class="link-text text-sm font-barlowCondensed uppercase"
+          class="link-text text-sm lg:text-base font-barlowCondensed uppercase"
           :class="activeLink(link.text)"
         >
-          {{ link.text }}
+          <span class="hidden xl:inline-block mr-2 font-bold">
+            {{ '0' + index }}
+          </span>
+          <span data-test-id="link-text">{{ link.text }}</span>
         </NuxtLink>
       </li>
     </ul>
@@ -37,8 +40,7 @@ export default Vue.extend({
 <style scoped>
 .navbar {
   background: hsla(0, 0%, 100%, 0.04);
-  backdrop-filter: blur(81.5485px);
-  padding: 39px 3rem;
+  backdrop-filter: blur(0.75rem);
 }
 
 .list-item:not(:first-of-type) {
@@ -55,7 +57,7 @@ export default Vue.extend({
   background: white;
   content: '';
   position: absolute;
-  bottom: -39px;
+  bottom: -43px;
   left: 0;
   width: 100%;
   height: 3px;

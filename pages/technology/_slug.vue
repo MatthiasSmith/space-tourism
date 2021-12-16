@@ -3,47 +3,68 @@
     class="
       bg-image
       min-h-screen
-      text-center
       pt-28
+      lg:pt-56
       pb-14
-      flex flex-col
-      items-center
+      lg:pb-24
+      xl:pb-0
+      lg:flex lg:justify-between lg:items-center
     "
   >
-    <AdventureType
-      number="03"
-      text="Space Launch 101"
-      class="px-6 md:self-start md:mt-8"
-    />
-    <FeaturedImage
-      class="featured-img text-center mt-8"
-      :img-name="imgName"
-      :alt="tech.name"
-      :styles="imageStyles"
-      fallback-img-type="jpg"
-      dir="technology"
-      orientation="landscape"
-    />
-    <PageTabs class="mt-8 md:mt-14 px-6" :tabs="pages" display-type="number" />
-    <section class="flex flex-col mt-7 md:mt-11 px-6">
-      <span
+    <div
+      class="
+        site-content-max-width
+        flex flex-col
+        items-center
+        mx-auto
+        lg:flex-row lg:self-start lg:pb-44 lg:mr-8
+        xl:mr-auto
+      "
+    >
+      <div
         class="
-          terminology-text
-          uppercase
-          text-lightPurple text-sub-heading-2
-          md:text-base
-          font-barlowCondensed
+          flex flex-col
+          items-center
+          lg:items-start lg:self-start lg:w-full lg:justify-between
         "
       >
-        The terminology...
-      </span>
-      <h1 class="title uppercase font-bellefair mt-2 md:mt-4">
-        {{ tech.name }}
-      </h1>
-      <p class="text-mobile-base md:text-base text-lightPurple mt-4 max-w-md">
-        {{ tech.description }}
-      </p>
-    </section>
+        <AdventureType
+          number="03"
+          text="Space Launch 101"
+          class="px-6 md:self-start md:mt-8 lg:mt-0"
+        />
+        <FeaturedImage
+          class="featured-img text-center mt-8 lg:hidden"
+          :img-name="imgName"
+          :alt="tech.name"
+          :styles="imageStyles"
+          fallback-img-type="jpg"
+          dir="technology"
+          orientation="landscape"
+        />
+        <div class="mt-8 md:mt-14 xl:mt-32 lg:flex lg:flex-row">
+          <PageTabs class="xl:mr-4" :tabs="pages" display-type="number" />
+          <TechnologyInfo
+            class="mt-7 md:mt-11 lg:mt-0 hidden lg:block"
+            :name="tech.name"
+            :description="tech.description"
+          />
+        </div>
+      </div>
+      <TechnologyInfo
+        class="mt-7 items-center text-center md:mt-11 lg:hidden"
+        :name="tech.name"
+        :description="tech.description"
+      />
+    </div>
+    <FeaturedImage
+      class="featured-img hidden lg:block"
+      :img-name="imgName"
+      :alt="tech.name"
+      fallback-img-type="jpg"
+      dir="technology"
+      orientation="portrait"
+    />
   </article>
 </template>
 
@@ -92,24 +113,30 @@ export default Vue.extend({
   width: 100%;
 }
 
-.title {
-  font-size: 1.5rem;
-  line-height: 1.75rem;
-}
-
 @media screen and (min-width: 48em) {
+  .bg-image {
+    background-image: var(--bgOverlayGradient),
+      url('~/assets/technology/background-technology-tablet.jpg');
+  }
+
   .terminology-text {
     letter-spacing: 2.7px;
     line-height: 19.2px;
   }
 
-  .title {
-    font-size: 2.5rem;
-    line-height: 45.84px;
+  .featured-img {
+    min-height: 312px;
+  }
+}
+
+@media screen and (min-width: 64em) {
+  .bg-image {
+    background-image: var(--bgOverlayGradient),
+      url('~/assets/technology/background-technology-desktop.jpg');
   }
 
   .featured-img {
-    min-height: 312px;
+    width: unset;
   }
 }
 </style>

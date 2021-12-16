@@ -5,6 +5,7 @@
         font-barlowCondensed font-bold
         text-mobile-sub-heading-1
         md:text-tablet-sub-heading-1
+        xl:text-heading-5
         opacity-25
         mr-4
       "
@@ -18,6 +19,7 @@
         font-barlowCondensed
         text-mobile-sub-heading-1
         md:text-tablet-sub-heading-1
+        xl:text-heading-5
       "
       data-test-id="text"
     >

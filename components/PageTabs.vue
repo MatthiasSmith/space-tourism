@@ -1,5 +1,11 @@
 <template>
-  <ul class="flex">
+  <ul
+    class="flex px-6"
+    :class="{
+      'lg:flex-col': displayType === 'number',
+      'lg:px-0': displayType !== 'number',
+    }"
+  >
     <li
       v-for="(tab, index) in tabs"
       :key="tab"
@@ -141,6 +147,11 @@ export default Vue.extend({
     letter-spacing: 2.7px;
   }
 
+  .link-bullet {
+    width: 0.9375rem;
+    height: 0.9375rem;
+  }
+
   .li-number {
     width: 3.75rem;
     height: 3.75rem;
@@ -148,6 +159,35 @@ export default Vue.extend({
 
   .link-number {
     font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 64em) {
+  .li-number:not(:first-of-type) {
+    margin-top: 1.5rem;
+  }
+
+  .li-number:not(:last-of-type) {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 80em) {
+  .li-number {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .li-number:not(:first-of-type) {
+    margin-top: 2rem;
+  }
+
+  .li-number:not(:last-of-type) {
+    margin-right: 0;
+  }
+
+  .link-number {
+    font-size: 2rem;
   }
 }
 </style>
