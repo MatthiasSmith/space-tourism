@@ -1,10 +1,21 @@
 <template>
   <nav class="navbar p-10 px-12 xl:pl-28 xl:pr-40">
     <ul class="flex">
-      <li v-for="(link, index) in links" :key="link.text" class="list-item">
+      <li
+        v-for="(link, index) in links"
+        :key="link.text"
+        class="list-item focus-within:outline-white"
+      >
         <NuxtLink
           :to="link.path"
-          class="link-text text-sm lg:text-base font-barlowCondensed uppercase"
+          class="
+            link-text
+            text-sm
+            lg:text-base
+            font-barlowCondensed
+            uppercase
+            focus:outline-none
+          "
           :class="activeLink(link.text)"
         >
           <span class="hidden xl:inline-block mr-2 font-bold">

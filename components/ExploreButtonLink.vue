@@ -49,7 +49,8 @@
   transition: opacity 0.25s ease-out;
 }
 
-.explore-button-link:hover + .hover-circle {
+.explore-button-link:hover + .hover-circle,
+.explore-button-link:focus + .hover-circle {
   opacity: 1;
 }
 
@@ -60,7 +61,8 @@
     transition: transform 0.25s ease-in-out;
   }
 
-  .explore-button-link:hover + .hover-circle {
+  .explore-button-link:hover + .hover-circle,
+  .explore-button-link:focus + .hover-circle {
     background-color: hsla(0, 0%, 100%, 0.1);
     transform: translate(-50%, -50%) scale(1.6423);
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);

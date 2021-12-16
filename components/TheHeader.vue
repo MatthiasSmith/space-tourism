@@ -1,6 +1,6 @@
 <template>
   <header class="flex justify-between items-center lg:pt-10">
-    <NuxtLink class="pl-6" to="/">
+    <NuxtLink class="ml-6 focus:outline-white" to="/">
       <img
         class="logo"
         src="~/assets/shared/logo.svg"

@@ -12,7 +12,7 @@
       class="tab relative h-7 md:h-8 text-center"
       :class="{
         'li-bullet': displayType === 'bullet',
-        'li-number': displayType === 'number',
+        'li-number focus-within:outline-white': displayType === 'number',
         'li-text': displayType === 'text',
       }"
     >
@@ -23,6 +23,7 @@
           'link-number': displayType === 'number',
           'link-text': displayType === 'text',
         }"
+        class="focus:outline-white"
       >
         <span v-if="displayType === 'number'">
           {{ index + 1 }}
@@ -113,7 +114,8 @@ export default Vue.extend({
   height: 0.625rem;
 }
 
-.link-bullet.nuxt-link-active {
+.link-bullet.nuxt-link-active,
+.link-bullet:focus {
   background-color: white;
   opacity: 1;
 }
