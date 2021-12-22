@@ -1,27 +1,26 @@
 <template>
   <nav class="navbar p-10 px-12 xl:pl-28 xl:pr-40">
     <ul class="flex">
-      <li
-        v-for="(link, index) in links"
-        :key="link.text"
-        class="list-item focus-within:outline-white"
-      >
+      <li v-for="(link, index) in links" :key="link.text" class="list-item">
         <NuxtLink
           :to="link.path"
           class="
-            link-text
-            text-sm
-            lg:text-base
+            link
             font-barlowCondensed
             uppercase
-            focus:outline-none
+            xl:inline-block
+            focus-visible:outline-white
           "
           :class="activeLink(link.text)"
         >
-          <span class="hidden xl:inline-block mr-2 font-bold">
+          <span
+            class="hidden text-sm lg:text-base xl:inline-block mr-2 font-bold"
+          >
             {{ '0' + index }}
           </span>
-          <span data-test-id="link-text">{{ link.text }}</span>
+          <span class="text-sm lg:text-base" data-test-id="link-text">
+            {{ link.text }}
+          </span>
         </NuxtLink>
       </li>
     </ul>
@@ -58,13 +57,12 @@ export default Vue.extend({
   margin-left: 2.5rem;
 }
 
-.link-text {
+.link {
   letter-spacing: 2.36px;
   position: relative;
 }
 
-.nuxt-link-exact-active::after,
-.link-active::after {
+.link::after {
   background: white;
   content: '';
   position: absolute;
@@ -72,5 +70,18 @@ export default Vue.extend({
   left: 0;
   width: 100%;
   height: 3px;
+  transition: transform 0.35s ease-in-out;
+  transform: scale(0);
+}
+
+.nuxt-link-exact-active::after,
+.link-active::after {
+  transform: scale(1);
+}
+
+@media screen and (min-width: 64em) {
+  .link::after {
+    bottom: -45px;
+  }
 }
 </style>

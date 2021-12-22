@@ -51,6 +51,7 @@ module.exports = {
   variants: {
     extend: {
       animation: ['motion-safe', 'motion-reduce'],
+      outline: ['focus-visible'],
     },
   },
   plugins: [],

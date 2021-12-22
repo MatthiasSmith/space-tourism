@@ -11,19 +11,19 @@
       :key="tab"
       class="tab relative h-7 md:h-8 text-center"
       :class="{
-        'li-bullet': displayType === 'bullet',
-        'li-number focus-within:outline-white': displayType === 'number',
-        'li-text': displayType === 'text',
+        li__bullet: displayType === 'bullet',
+        'li__number focus-within:outline-white': displayType === 'number',
+        li__text: displayType === 'text',
       }"
     >
       <NuxtLink
         :to="getLink(tab)"
         :class="{
-          'link-bullet': displayType === 'bullet',
-          'link-number': displayType === 'number',
-          'link-text': displayType === 'text',
+          tab__bullet: displayType === 'bullet',
+          tab__number: displayType === 'number',
+          tab__text: displayType === 'text',
         }"
-        class="focus:outline-white"
+        class="focus-visible:outline-white"
       >
         <span v-if="displayType === 'number'">
           {{ index + 1 }}
@@ -67,16 +67,16 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.li-bullet:not(:last-of-type),
-.li-number:not(:last-of-type) {
+.li__bullet:not(:last-of-type),
+.li__number:not(:last-of-type) {
   margin-right: 1rem;
 }
 
-.li-text:not(:last-of-type) {
+.li__text:not(:last-of-type) {
   margin-right: 2rem;
 }
 
-.li-number {
+.li__number {
   border-radius: 50%;
   border: 1px solid hsla(0, 0%, 100%, 0.25);
   width: 2.5rem;
@@ -85,7 +85,7 @@ export default Vue.extend({
   overflow: hidden;
 }
 
-.link-number {
+.tab__number {
   width: 100%;
   color: white;
   font-family: 'Bellefair';
@@ -97,7 +97,7 @@ export default Vue.extend({
   width: 100%;
 }
 
-.link-number span {
+.tab__number span {
   letter-spacing: 1px;
   position: absolute;
   top: 50%;
@@ -105,7 +105,7 @@ export default Vue.extend({
   transform: translate(-50%, -50%);
 }
 
-.link-bullet {
+.tab__bullet {
   background-color: white;
   border-radius: 50%;
   display: inline-block;
@@ -114,22 +114,22 @@ export default Vue.extend({
   height: 0.625rem;
 }
 
-.link-bullet.nuxt-link-active,
-.link-bullet:focus {
+.tab__bullet.nuxt-link-active,
+.tab__bullet:focus {
   background-color: white;
   opacity: 1;
 }
 
-.link-number.nuxt-link-active {
+.tab__number.nuxt-link-active {
   color: var(--darkGray);
   background-color: white;
 }
 
-.link-text.nuxt-link-active {
+.tab__text.nuxt-link-active {
   color: white;
 }
 
-.link-text.nuxt-link-active::after {
+.tab__text::after {
   content: '';
   background: white;
   height: 3px;
@@ -137,10 +137,16 @@ export default Vue.extend({
   position: absolute;
   bottom: 0;
   left: 0;
+  transition: transform 0.35s ease-out;
+  transform: scale(0);
+}
+
+.tab .tab__text.nuxt-link-active::after {
+  transform: scale(1);
 }
 
 @media screen and (min-width: 48em) {
-  .link-text.nuxt-link-active::after {
+  .tab__text.nuxt-link-active::after {
     bottom: -2px;
   }
 
@@ -149,47 +155,53 @@ export default Vue.extend({
     letter-spacing: 2.7px;
   }
 
-  .link-bullet {
+  .tab__bullet {
     width: 0.9375rem;
     height: 0.9375rem;
   }
 
-  .li-number {
+  .li__number {
     width: 3.75rem;
     height: 3.75rem;
   }
 
-  .link-number {
+  .tab__number {
     font-size: 1.5rem;
   }
 }
 
 @media screen and (min-width: 64em) {
-  .li-number:not(:first-of-type) {
+  .li__number:not(:first-of-type) {
     margin-top: 1.5rem;
   }
 
-  .li-number:not(:last-of-type) {
+  .li__number:not(:last-of-type) {
     margin-right: 0;
   }
 }
 
 @media screen and (min-width: 80em) {
-  .li-number {
+  .li__number {
     width: 5rem;
     height: 5rem;
   }
 
-  .li-number:not(:first-of-type) {
+  .li__number:not(:first-of-type) {
     margin-top: 2rem;
   }
 
-  .li-number:not(:last-of-type) {
+  .li__number:not(:last-of-type) {
     margin-right: 0;
   }
 
-  .link-number {
+  .tab__number {
     font-size: 2rem;
+  }
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .tab__text::after {
+    transition-duration: 0s;
   }
 }
 </style>
