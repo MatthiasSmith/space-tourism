@@ -63,25 +63,42 @@ export default Vue.extend({
 }
 
 .link::after {
-  background: white;
+  background-color: hsla(0, 0%, 100%, 0.5);
   content: '';
   position: absolute;
   bottom: -43px;
   left: 0;
   width: 100%;
   height: 3px;
-  transition: transform 0.35s ease-in-out;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
   transform: scale(0);
+}
+
+.link:hover::after {
+  transform: scale(1);
 }
 
 .nuxt-link-exact-active::after,
 .link-active::after {
+  background-color: white;
   transform: scale(1);
 }
 
 @media screen and (min-width: 64em) {
   .link::after {
     bottom: -45px;
+  }
+}
+
+@media screen and (min-width: 80em) {
+  .link::after {
+    bottom: -40px;
+  }
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .link::after {
+    transition-duration: 0s;
   }
 }
 </style>

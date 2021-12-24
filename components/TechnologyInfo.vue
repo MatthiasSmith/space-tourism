@@ -16,10 +16,9 @@
     </h1>
     <p
       class="
-        text-mobile-base
+        text-lightPurple text-mobile-base
         md:text-base
         xl:text-lg xl:leading-8
-        text-lightPurple
         mt-4
         max-w-md
       "

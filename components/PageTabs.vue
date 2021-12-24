@@ -83,6 +83,11 @@ export default Vue.extend({
   height: 2.5rem;
   position: relative;
   overflow: hidden;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.li__number:hover {
+  border-color: white;
 }
 
 .tab__number {
@@ -112,6 +117,11 @@ export default Vue.extend({
   opacity: 0.25;
   width: 0.625rem;
   height: 0.625rem;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.tab__bullet:hover {
+  opacity: 0.5;
 }
 
 .tab__bullet.nuxt-link-active,
@@ -131,22 +141,27 @@ export default Vue.extend({
 
 .tab__text::after {
   content: '';
-  background: white;
+  background-color: hsla(0, 0%, 100%, 0.5);
   height: 3px;
   width: 100%;
   position: absolute;
   bottom: 0;
   left: 0;
-  transition: transform 0.35s ease-out;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
   transform: scale(0);
 }
 
+.tab .tab__text:hover::after {
+  transform: scale(1);
+}
+
 .tab .tab__text.nuxt-link-active::after {
+  background: white;
   transform: scale(1);
 }
 
 @media screen and (min-width: 48em) {
-  .tab__text.nuxt-link-active::after {
+  .tab__text::after {
     bottom: -2px;
   }
 

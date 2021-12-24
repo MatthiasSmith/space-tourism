@@ -24,6 +24,8 @@
         xl:text-lg xl:leading-8
         text-lightPurple
         mt-4
+        max-w-md
+        lg:h-40
       "
     >
       {{ bio }}
