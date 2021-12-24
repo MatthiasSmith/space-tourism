@@ -6,17 +6,14 @@
       flex flex-col
       lg:flex-row
       items-center
-      lg:justify-between lg:pt-24
+      lg:justify-between lg:pt-16
+      pb-14
+      lg:pb-32
     "
   >
-    <div class="flex flex-col w-full items-center lg:self-start lg:flex-1">
-      <AdventureType
-        number="01"
-        text="Pick your destination"
-        class="md:self-start md:mt-8 lg:mt-0"
-      />
+    <div class="flex flex-col items-center lg:self-start lg:flex-1">
       <FeaturedImage
-        class="featured-img text-center mt-8 md:mt-14"
+        class="featured-img text-center mt-8 md:mt-14 xl:ml-16"
         :img-name="destination.name"
         :alt="destination.name"
         :img-types="imgTypes"
@@ -24,7 +21,7 @@
         dir="destination"
       />
     </div>
-    <div class="flex flex-col items-center lg:max-w-md lg:items-start">
+    <div class="flex flex-col items-center px-6 lg:px-0 lg:items-start">
       <PageTabs class="mt-7 md:mt-12 lg:mt-0" :tabs="destinations" />
       <h1
         class="
@@ -48,6 +45,7 @@
           md:mt-2
           max-w-md
           md:max-w-xl
+          lg:max-w-md
           text-center
           lg:text-left lg:h-28
         "
@@ -137,6 +135,13 @@ export default Vue.extend({
   .featured-img {
     width: min(27.8125rem, 65%);
     height: min(27.8125rem, 65%);
+  }
+}
+
+@media screen and (min-width: 80em) {
+  .featured-img {
+    width: 100%;
+    height: 100%;
   }
 }
 </style>

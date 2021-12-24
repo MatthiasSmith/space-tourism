@@ -1,7 +1,7 @@
 <template>
   <div class="container relative">
     <NuxtLink
-      to="destination/moon"
+      to="attraction/destination/moon"
       class="
         explore-button-link
         inline-flex

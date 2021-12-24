@@ -1,5 +1,5 @@
 <template>
-  <article class="bg-image min-h-screen px-6 pt-28">
+  <article class="bg-image min-h-screen pt-28">
     <div
       class="
         site-content-max-width
@@ -9,7 +9,7 @@
         xl:mt-60
       "
     >
-      <section class="text-center lg:text-left">
+      <section class="text-center px-6 lg:px-0 lg:text-left">
         <h1 class="uppercase md:mt-24 lg:mt-3">
           <span
             class="
@@ -39,6 +39,7 @@
           class="
             text-mobile-base
             md:text-base
+            xl:text-lg xl:leading-8
             text-lightPurple
             mt-4
             md:mt-6

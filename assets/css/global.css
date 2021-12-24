@@ -13,6 +13,15 @@ html {
   max-width: max(56rem, 85vw);
 }
 
+@media screen and (min-width: 64em) {
+  :root {
+    --bgOverlayGradient: linear-gradient(
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2)
+    );
+  }
+}
+
 @media screen and (min-width: 80em) {
   .site-content-max-width {
     max-width: 69.375rem;

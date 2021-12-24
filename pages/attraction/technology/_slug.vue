@@ -1,14 +1,11 @@
 <template>
-  <article
+  <div
     class="
-      bg-image
-      min-h-screen
-      pt-28
-      lg:pt-56
-      pb-14
-      lg:pb-24
-      xl:pb-0
       lg:flex lg:justify-between lg:items-center
+      pb-14
+      lg:pb-16
+      site-content-max-width
+      mx-auto
     "
   >
     <div
@@ -16,23 +13,10 @@
         site-content-max-width
         flex flex-col
         items-center
-        mx-auto
-        lg:flex-row lg:self-start lg:pb-44 lg:mr-8
-        xl:mr-auto
+        lg:flex-row lg:self-start lg:pb-44
       "
     >
-      <div
-        class="
-          flex flex-col
-          items-center
-          lg:items-start lg:self-start lg:w-full lg:justify-between
-        "
-      >
-        <AdventureType
-          number="03"
-          text="Space Launch 101"
-          class="px-6 md:self-start md:mt-8 lg:mt-0"
-        />
+      <div class="flex flex-col items-center lg:justify-between">
         <FeaturedImage
           class="featured-img text-center mt-8 lg:hidden"
           :img-name="imgName"
@@ -43,7 +27,11 @@
           orientation="landscape"
         />
         <div class="mt-8 md:mt-14 xl:mt-32 lg:flex lg:flex-row">
-          <PageTabs class="xl:mr-4" :tabs="pages" display-type="number" />
+          <PageTabs
+            class="xl:mr-4 lg:pl-0"
+            :tabs="pages"
+            display-type="number"
+          />
           <TechnologyInfo
             class="mt-7 md:mt-11 lg:mt-0 hidden lg:block"
             :name="tech.name"
@@ -58,14 +46,14 @@
       />
     </div>
     <FeaturedImage
-      class="featured-img hidden lg:block"
+      class="featured-img hidden lg:block absolute right-0"
       :img-name="imgName"
       :alt="tech.name"
       fallback-img-type="jpg"
       dir="technology"
       orientation="portrait"
     />
-  </article>
+  </div>
 </template>
 
 <script lang="ts">
@@ -101,40 +89,27 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.bg-image {
-  background-image: var(--bgOverlayGradient),
-    url('~/assets/technology/background-technology-mobile.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 .featured-img {
-  min-height: 170px;
-  width: 100%;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
 }
 
 @media screen and (min-width: 48em) {
-  .bg-image {
-    background-image: var(--bgOverlayGradient),
-      url('~/assets/technology/background-technology-tablet.jpg');
-  }
-
   .terminology-text {
     letter-spacing: 2.7px;
     line-height: 19.2px;
   }
-
-  .featured-img {
-    min-height: 312px;
-  }
 }
 
 @media screen and (min-width: 64em) {
-  .bg-image {
-    background-image: var(--bgOverlayGradient),
-      url('~/assets/technology/background-technology-desktop.jpg');
+  .featured-img {
+    width: 39vw;
+    margin-left: 0rem;
+    margin-right: 0rem;
   }
+}
 
+@media screen and (min-width: 80em) {
   .featured-img {
     width: unset;
   }
