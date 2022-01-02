@@ -27,3 +27,21 @@ html {
     max-width: 69.375rem;
   }
 }
+
+/* page transition styles */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .page-enter-active,
+  .page-leave-active {
+    transition: none;
+  }
+}
