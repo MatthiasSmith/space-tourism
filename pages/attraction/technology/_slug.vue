@@ -103,7 +103,7 @@ export default Vue.extend({
 
 @media screen and (min-width: 64em) {
   .featured-img {
-    width: 39vw;
+    width: 38vw;
     margin-left: 0rem;
     margin-right: 0rem;
   }
