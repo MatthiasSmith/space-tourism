@@ -6,7 +6,13 @@
       :srcset="image.src"
       :type="`image/${image.imgType}`"
     />
-    <img :src="fallbackImg" :alt="alt" :style="styles" />
+    <img
+      class="opacity-0 transition-opacity duration-200 ease-in-out"
+      :src="fallbackImg"
+      :alt="alt"
+      :style="styles"
+      @load="onImgLoad"
+    />
   </picture>
 </template>
 
@@ -67,6 +73,11 @@ export default Vue.extend({
       return require(`~/assets/${this.dir}/image-${this.imgName.toLowerCase()}${
         this.orientation ? '-' + this.orientation : ''
       }.${this.fallbackImgType}`)
+    },
+  },
+  methods: {
+    onImgLoad(event: UIEvent): void {
+      ;(event.target as HTMLImageElement).classList.add('opacity-100')
     },
   },
 })
