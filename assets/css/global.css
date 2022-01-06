@@ -7,6 +7,8 @@ html {
   background-color: #080d17;
   color: #ffffff;
   font-family: 'Barlow';
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .site-content-max-width {
