@@ -10,7 +10,7 @@
       "
     >
       <section class="text-center px-6 lg:px-0 lg:text-left">
-        <h1 class="uppercase md:mt-24 lg:mt-3">
+        <h1 id="main-content" class="uppercase md:mt-24 lg:mt-3">
           <span
             class="
               font-barlowCondensed

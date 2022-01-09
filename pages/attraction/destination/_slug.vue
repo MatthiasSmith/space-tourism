@@ -24,6 +24,7 @@
     <div class="flex flex-col items-center px-6 lg:px-0 lg:items-start">
       <PageTabs class="mt-7 md:mt-12 lg:mt-0" :tabs="destinations" />
       <h1
+        id="main-content"
         class="
           page-title
           uppercase

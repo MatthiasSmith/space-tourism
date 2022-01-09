@@ -5,6 +5,7 @@ describe('TheHeader', () => {
   const stubs = {
     NuxtLink: { template: '<a><slot></slot></a>' },
     TheNavbar: { template: '<nav></nav>' },
+    SkipLink: { template: '<a></a>' },
   }
 
   test('renders correctly', () => {

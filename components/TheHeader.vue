@@ -1,5 +1,6 @@
 <template>
   <header class="flex justify-between items-center pt-6 md:pt-0 lg:pt-10">
+    <SkipLink />
     <NuxtLink class="ml-6 focus:outline-white" to="/">
       <img class="logo" src="~/assets/shared/logo.svg" alt="navigate home" />
     </NuxtLink>

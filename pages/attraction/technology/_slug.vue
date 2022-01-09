@@ -40,6 +40,7 @@
         </div>
       </div>
       <TechnologyInfo
+        id="main-content"
         class="mt-7 items-center text-center md:mt-11 lg:hidden"
         :name="tech.name"
         :description="tech.description"
