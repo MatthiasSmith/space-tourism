@@ -8,7 +8,7 @@
   >
     <li
       v-for="(tab, index) in tabs"
-      :key="tab"
+      :key="tab.id"
       class="tab relative h-7 md:h-8 text-center"
       :class="{
         li__bullet: displayType === 'bullet',
@@ -25,7 +25,12 @@
         }"
         class="focus-visible:outline-white"
       >
-        <span v-if="displayType === 'number'">
+        <span class="sr-only">{{ tab.name }}</span>
+        <span
+          v-if="displayType === 'number'"
+          aria-hidden="true"
+          :data-test-id="`link-display-text-${tab.id}`"
+        >
           {{ index + 1 }}
         </span>
         <span
@@ -36,8 +41,10 @@
             text-sub-heading-2 text-lightPurple
             uppercase
           "
+          aria-hidden="true"
+          :data-test-id="`link-display-text-${tab.id}`"
         >
-          {{ tab }}
+          {{ tab.name }}
         </span>
       </NuxtLink>
     </li>
@@ -46,12 +53,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { TabType } from '~/types/tab'
 
 export default Vue.extend({
   props: {
     tabs: {
       type: Array,
-      default: () => [],
+      default: (): TabType[] => [],
     },
     displayType: {
       type: String,
@@ -59,8 +67,8 @@ export default Vue.extend({
     },
   },
   methods: {
-    getLink(tab: string): string {
-      return `${tab.toLowerCase()}`
+    getLink(tab: TabType): string {
+      return `${tab.id.toLowerCase()}`
     },
   },
 })

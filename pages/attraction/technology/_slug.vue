@@ -59,13 +59,15 @@
 <script lang="ts">
 import Vue from 'vue'
 import { TechnologyType } from '~/types/technology'
+import { TabType } from '~/types/tab'
 
 export default Vue.extend({
   async asyncData({ $content, params }) {
     const data = await $content('technology').fetch()
-    const pages: string[] = data.map((item: TechnologyType) =>
-      item.id.toString()
-    )
+    const pages: TabType[] = data.map((item: TechnologyType) => ({
+      id: item.id.toString(),
+      name: item.name,
+    }))
     const tech: TechnologyType = data.find(
       (item: TechnologyType) => params.slug === item.id.toString()
     )

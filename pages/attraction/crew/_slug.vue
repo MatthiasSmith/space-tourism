@@ -71,11 +71,15 @@
 <script lang="ts">
 import Vue from 'vue'
 import { CrewType } from '~/types/crew'
+import { TabType } from '~/types/tab'
 
 export default Vue.extend({
   async asyncData({ $content, params }) {
     const data = await $content('crew').fetch()
-    const pages: string[] = data.map((item: CrewType) => item.id.toString())
+    const pages: TabType[] = data.map((item: CrewType) => ({
+      id: item.id.toString(),
+      name: item.name,
+    }))
     const crewMember: CrewType = data.find(
       (item: CrewType) => params.slug === item.id.toString()
     )
