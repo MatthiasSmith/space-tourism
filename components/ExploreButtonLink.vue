@@ -58,7 +58,7 @@
   .hover-circle {
     opacity: 1;
     transform: translate(-50%, -50%) scale(0.65);
-    transition: transform 0.25s ease-in-out;
+    transition: transform 0.35s ease-in-out;
   }
 
   .explore-button-link:hover + .hover-circle,
